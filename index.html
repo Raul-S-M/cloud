@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Raúl Samá</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Raúl Samá</h1>
+        <p>Desarrollador Web Full Stack</p>
+    </div>
+</header>
+
+<div class="container">
+    <section id="perfil">
+        <h2>Perfil Profesional</h2>
+        <p>Desarrollador web apasionado con más de 5 años de experiencia en la creación de aplicaciones web dinámicas y escalables. Especializado en tecnologías frontend y backend, con un fuerte enfoque en la experiencia del usuario y el código limpio. Busco oportunidades para aportar mis habilidades técnicas y creativas en proyectos desafiantes.</p>
+    </section>
+
+    <section id="experiencia">
+        <h2>Experiencia Laboral</h2>
+        <div class="job">
+            <h3>Desarrollador Senior Frontend</h3>
+            <span class="date">TechSolutions Inc. | Enero 2021 - Presente</span>
+            <ul>
+                <li>Lideré el rediseño de la plataforma principal de la empresa, mejorando la velocidad de carga en un 40%.</li>
+                <li>Implementé nuevas funcionalidades utilizando React y Redux.</li>
+                <li>Mentoricé a desarrolladores junior y realicé revisiones de código.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <h3>Desarrollador Web Full Stack</h3>
+            <span class="date">Agencia Digital Creativa | Marzo 2018 - Diciembre 2020</span>
+            <ul>
+                <li>Desarrollé sitios web corporativos y de comercio electrónico para diversos clientes.</li>
+                <li>Trabajé con PHP, Laravel y MySQL en el backend.</li>
+                <li>Colaboré estrechamente con diseñadores para asegurar la fidelidad visual.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="educacion">
+        <h2>Educación</h2>
+        <div class="education-item">
+            <h3>Grado en Ingeniería Informática</h3>
+            <span class="date">Universidad Politécnica | 2014 - 2018</span>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <ul class="skills-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript (ES6+)</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Git</li>
+            <li>SQL</li>
+            <li>Diseño Responsive</li>
+        </ul>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Email: raul.sama@email.com</p>
+        <p>Teléfono: +34 600 000 000</p>
+        <p>LinkedIn: linkedin.com/in/raulsama</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Raúl Samá. Todos los derechos reservados.</p>
+        <p>Visitas: <span id="visit-count">--</span></p>
+    </footer>
+</div>
+
+<script>
+(async () => {
+  const endpoint = "https://uzcb0z66a6.execute-api.us-east-1.amazonaws.com/count";
+  const el = document.getElementById("visit-count");
+
+  try {
+    const res = await fetch(endpoint);
+    const data = await res.json();
+    el.textContent = data.count ?? "?";
+  } catch (err) {
+    console.error("Error contador:", err);
+    el.textContent = "—";
+  }
+})();
+</script>
+
+</body>
+</html>

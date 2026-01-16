@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae - Raúl Samá</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -13,24 +12,10 @@
     <div class="container">
         <h1>Raúl Samá</h1>
         <p>Desarrollador Web Full Stack</p>
+        <p>Visitas: <span id="visit-count">--</span></p>
     </div>
 </header>
-<script>
-(async () => {
-  const endpoint = "https://uzcb0z66a6.execute-api.us-east-1.amazonaws.com/count";
-  const el = document.getElementById("visit-count");
 
-  try {
-    const res = await fetch(endpoint);
-    const data = await res.json();
-    el.textContent = data.count ?? "?";
-  } catch (err) {
-    console.error("Error contador:", err);
-    el.textContent = "—";
-  }
-})();
-</script>
-    
 <div class="container">
     <section id="perfil">
         <h2>Perfil Profesional</h2>
@@ -90,13 +75,24 @@
 
     <footer>
         <p>&copy; 2025 Raúl Samá. Todos los derechos reservados.</p>
-        <p>Visitas: <span id="visit-count">--</span></p>
     </footer>
 </div>
 
+<script>
+(async () => {
+  const endpoint = "https://uzcb0z66a6.execute-api.us-east-1.amazonaws.com/count";
+  const el = document.getElementById("visit-count");
 
+  try {
+    const res = await fetch(endpoint);
+    const data = await res.json();
+    el.textContent = data.count ?? "?";
+  } catch (err) {
+    console.error("Error contador:", err);
+    el.textContent = "—";
+  }
+})();
+</script>
 
 </body>
 </html>
-
-

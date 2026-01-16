@@ -15,7 +15,22 @@
         <p>Desarrollador Web Full Stack</p>
     </div>
 </header>
+<script>
+(async () => {
+  const endpoint = "https://uzcb0z66a6.execute-api.us-east-1.amazonaws.com/count";
+  const el = document.getElementById("visit-count");
 
+  try {
+    const res = await fetch(endpoint);
+    const data = await res.json();
+    el.textContent = data.count ?? "?";
+  } catch (err) {
+    console.error("Error contador:", err);
+    el.textContent = "—";
+  }
+})();
+</script>
+    
 <div class="container">
     <section id="perfil">
         <h2>Perfil Profesional</h2>
@@ -79,22 +94,9 @@
     </footer>
 </div>
 
-<script>
-(async () => {
-  const endpoint = "https://uzcb0z66a6.execute-api.us-east-1.amazonaws.com/count";
-  const el = document.getElementById("visit-count");
 
-  try {
-    const res = await fetch(endpoint);
-    const data = await res.json();
-    el.textContent = data.count ?? "?";
-  } catch (err) {
-    console.error("Error contador:", err);
-    el.textContent = "—";
-  }
-})();
-</script>
 
 </body>
 </html>
+
 
